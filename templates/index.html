@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANI The Chat-Bot</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="brand">
+                <i class="fas fa-robot"></i>
+                <span>ANI The Chat-Bot</span>
+            </div>
+            <a href="http://razorpay.com/?utm_adgroup=PG-Core-Exact&utm_gclid=&utm_campaignID=17716711120&utm_adgroupID=142346768121&utm_adID=689578507676&utm_network=g&utm_matchtype=e&utm_devicemodel=&utm_adposition=&utm_location=9300836&gad_source=1" 
+               class="upgrade-btn"
+               target="_blank"
+               rel="noopener noreferrer">
+                <i class="fas fa-gem"></i>
+                Upgrade Plan
+            </a>
+        </nav>  
+    </header>
+
+    <main class="main-container">
+        <section class="chat-section">
+            <div class="chat-container">
+                <div id="chat-messages" class="chat-messages">
+                    <div class="message bot-message">
+                        <div class="message-content">
+                            <i class="fas fa-robot message-icon"></i>
+                            <div class="message-text">
+                                Hello! I'm ANI, your AI assistant. How can I help you today?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-container">
+                    <div class="input-wrapper">
+                        <input type="text" 
+                               id="user-input" 
+                               placeholder="Type your message..."
+                               aria-label="Chat input">
+                        <button id="send-btn" class="send-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <div class="map-container">
+                <h1>Developed with ❤️ at</h1>
+                <iframe class="map-iframe" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.160437214943!2d77.4762434!3d28.474714600000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cebdaaaaaaaab%3A0xef507664000ad02f!2sDelhi%20Technical%20Campus!5e0!3m2!1sen!2sin!4v1742071087014!5m2!1sen!2sin" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
