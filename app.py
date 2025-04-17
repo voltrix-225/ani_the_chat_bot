@@ -11,7 +11,7 @@ def home():
     return render_template('index.html')
 
 
-genai.configure(api_key = '')
+genai.configure(api_key = 'AIzaSyAq_FWBuZOskeIwc1F_IhBctqkcRa9SVnI')
 
 with open('instruction.txt', 'r') as instruction_file:
     instructions = instruction_file.read().strip()
