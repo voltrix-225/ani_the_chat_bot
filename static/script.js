@@ -70,7 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
             this.chatMessages.appendChild(messageDiv);
-            this.scrollToBottom();
+
+            // Ensure scroll happens after rendering
+            setTimeout(() => this.scrollToBottom(), 0);
         },
 
         sanitizeInput(text) {
@@ -97,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
             this.chatMessages.appendChild(errorDiv);
-            this.scrollToBottom();
+            setTimeout(() => this.scrollToBottom(), 0);
         },
 
         saveHistory() {
@@ -108,11 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }));
             localStorage.setItem('chatHistory', JSON.stringify(messages));
         },
-
-        scrollToBottom() {
-            this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
-        },
-        
 
         restoreHistory() {
             const history = JSON.parse(localStorage.getItem('chatHistory') || '[]');
