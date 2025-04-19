@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         init() {
             this.addEventListeners();
-            this.restoreHistory();
+            //this.restoreHistory();
+            
         },
 
         addEventListeners() {
@@ -70,9 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
             this.chatMessages.appendChild(messageDiv);
-
-            // Ensure scroll happens after rendering
-            setTimeout(() => this.scrollToBottom(), 0);
+            this.scrollToBottom();
         },
 
         sanitizeInput(text) {
@@ -86,8 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
         scrollToBottom() {
-            this.chatMessages.scrollTo({ top: this.chatMessages.scrollHeight, behavior: 'smooth' });
+            this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
         },
+        
 
         showErrorMessage() {
             const errorDiv = document.createElement('div');
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
             this.chatMessages.appendChild(errorDiv);
-            setTimeout(() => this.scrollToBottom(), 0);
+            this.scrollToBottom();
         },
 
         saveHistory() {
@@ -110,6 +110,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 }));
             localStorage.setItem('chatHistory', JSON.stringify(messages));
         },
+
+        scrollToBottom() {
+            this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+        },
+        
 
         restoreHistory() {
             const history = JSON.parse(localStorage.getItem('chatHistory') || '[]');
