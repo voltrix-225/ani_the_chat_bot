@@ -31,7 +31,7 @@ def model_out():
 
     user_in = request.json.get("message")
 
-    model = genai.GenerativeModel(model_name ='gemini-1.5-flash', system_instruction = {'parts' : instructions})  #model info
+    model = genai.GenerativeModel(model_name ='gemini-2.0-flash', system_instruction = {'parts' : instructions})  #model info
     chat = model.start_chat(history = chat_history)  #tarts chat with previous history
     response = chat.send_message(user_in, stream = True)  #sends message to API call
     response.resolve()  #response buffer
