@@ -2,6 +2,7 @@ import google.generativeai as genai
 import json
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
+import os
 
 app = Flask(__name__)
 CORS(app) #enables Cross origin resource sharing, a security feature for browsers
@@ -11,7 +12,7 @@ def home():
     return render_template('index.html')
 
 
-genai.configure(api_key = 'AIzaSyAq_FWBuZOskeIwc1F_IhBctqkcRa9SVnI')
+genai.configure(api_key = os.getenv('API_KEY'))
 
 with open('instruction.txt', 'r') as instruction_file:
     instructions = instruction_file.read().strip()
